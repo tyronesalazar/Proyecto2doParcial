@@ -41,6 +41,7 @@ namespace CapaDatos.SQL
         {
             if (connection_db.State == ConnectionState.Open)
                 connection_db.Close();
+            Console.WriteLine("Conexion Cerrada");
             return connection_db;
         }
     }

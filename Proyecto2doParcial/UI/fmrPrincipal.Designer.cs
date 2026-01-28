@@ -1,6 +1,6 @@
-﻿namespace Proyecto2doParcial
+﻿namespace CapaPresentacion.UI
 {
-    partial class FmrPrincipal
+    partial class FmrPrincipal : Form
     {
         /// <summary>
         ///  Required designer variable.

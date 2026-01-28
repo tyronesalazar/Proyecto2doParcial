@@ -52,11 +52,11 @@ namespace APPreservaLabUI.UI
         private void CargarLaboratorios()
         {
             cmbLaboratorio.Items.Clear();
-            var laboratorios = ln_laboratorio.ObtenerLaboratoriosActivos();
-            foreach (var lab in laboratorios)
-            {
-                cmbLaboratorio.Items.Add(lab.Nombre);
-            }
+            //var laboratorios = ln_laboratorio.ObtenerLaboratoriosActivos();
+            //foreach (var lab in laboratorios)
+            //{
+            //    cmbLaboratorio.Items.Add(lab.Nombre);
+            //}
         }
         private void HabilitarCampos(bool estado)
         {
@@ -94,78 +94,78 @@ namespace APPreservaLabUI.UI
 
         private void btnGrabarResv_Click(object sender, EventArgs e)
         {
-            try
-            {
+            //try
+            //{
 
-                if (!ValidarCampos())
-                    return;
-                Cl_Reserva reserva = new Cl_Reserva();
+            //    if (!ValidarCampos())
+            //        return;
+            //    Cl_Reserva reserva = new Cl_Reserva();
 
-                var laboratorioSeleccionado = ln_laboratorio.ObtenerLaboratorioPorNombre(cmbLaboratorio.SelectedItem.ToString());
+            //var laboratorioSeleccionado = ln_laboratorio.ObtenerLaboratorioPorNombre(cmbLaboratorio.SelectedItem.ToString());
 
-                if (is_reserva_nueva)
-                {
-                    reserva.Id = ln_reserva.GetNextId();
-                    reserva.Docente = cmbDocente.SelectedItem.ToString();
-                    reserva.Asignatura = cmbAsignatura.SelectedItem.ToString();
-                    reserva.LaboratorioId = ln_laboratorio.ObtenerLaboratorioPorNombre(cmbLaboratorio.SelectedItem.ToString())[0].Id;
-                    reserva.Fecha = dtpFecha.Value.Date;
-                    reserva.HoraInicio = dtpInicio.Value.TimeOfDay;
-                    reserva.HoraFin = dtpFinal.Value.TimeOfDay;
-                    reserva.CantEstudiantes = int.Parse(txtCantResv.Text);
+            //if (is_reserva_nueva)
+            //{
+            //    reserva.Id = ln_reserva.GetNextId();
+            //    reserva.Docente = cmbDocente.SelectedItem.ToString();
+            //    reserva.Asignatura = cmbAsignatura.SelectedItem.ToString();
+            //    reserva.LaboratorioId = ln_laboratorio.ObtenerLaboratorioPorNombre(cmbLaboratorio.SelectedItem.ToString())[0].Id;
+            //    reserva.Fecha = dtpFecha.Value.Date;
+            //    reserva.HoraInicio = dtpInicio.Value.TimeOfDay;
+            //    reserva.HoraFin = dtpFinal.Value.TimeOfDay;
+            //    reserva.CantEstudiantes = int.Parse(txtCantResv.Text);
 
-                    if (ln_reserva.ValidarDisponibilidad(reserva) && ln_reserva.ValidarCapacidad(reserva, laboratorioSeleccionado[0].Capacidad))
-                    {
-                        ln_reserva.CrearReserva(reserva);
-                        MessageBox.Show("Reserva guardada");
-                        is_reserva_nueva = false;
-                        HabilitarCampos(false);
-                        limpiar_controles();
-                        CargarReservasGrid();
+            //    if (ln_reserva.ValidarDisponibilidad(reserva) && ln_reserva.ValidarCapacidad(reserva, laboratorioSeleccionado[0].Capacidad))
+            //    {
+            //        ln_reserva.CrearReserva(reserva);
+            //        MessageBox.Show("Reserva guardada");
+            //        is_reserva_nueva = false;
+            //        HabilitarCampos(false);
+            //        limpiar_controles();
+            //        CargarReservasGrid();
 
-                        btnGrabarResv.Enabled = false;
-                        btnNuevoResv.Enabled = true;
-                        btnEliminarResv.Enabled = true;
-                    }
-                    else
-                    {
-                        MessageBox.Show("El laboratorio no está disponible en la fecha y hora seleccionadas o no hay capacidad para el laboratorio que seleccionaste.");
-                    }
-                }
-                else
-                {
-                    reserva.Id = int.Parse(txtId.Text);
-                    reserva.Docente = cmbDocente.SelectedItem.ToString();
-                    reserva.Asignatura = cmbAsignatura.SelectedItem.ToString();
-                    reserva.LaboratorioId = ln_laboratorio.ObtenerLaboratorioPorNombre(cmbLaboratorio.SelectedItem.ToString())[0].Id;
-                    reserva.Fecha = dtpFecha.Value.Date;
-                    reserva.HoraInicio = dtpInicio.Value.TimeOfDay;
-                    reserva.HoraFin = dtpFinal.Value.TimeOfDay;
-                    reserva.CantEstudiantes = int.Parse(txtCantResv.Text);
-                    if (ln_reserva.ValidarDisponibilidad(reserva) && ln_reserva.ValidarCapacidad(reserva, laboratorioSeleccionado[0].Capacidad))
-                    {
-                        ln_reserva.ModificarReserva(reserva);
-                        MessageBox.Show("Reserva guardada");
-                        is_reserva_nueva = false;
-                        HabilitarCampos(false);
-                        limpiar_controles();
-                        CargarReservasGrid();
+            //        btnGrabarResv.Enabled = false;
+            //        btnNuevoResv.Enabled = true;
+            //        btnEliminarResv.Enabled = true;
+            //    }
+            //    else
+            //    {
+            //        MessageBox.Show("El laboratorio no está disponible en la fecha y hora seleccionadas o no hay capacidad para el laboratorio que seleccionaste.");
+            //    }
+            //}
+            //else
+            //{
+            //    reserva.Id = int.Parse(txtId.Text);
+            //    reserva.Docente = cmbDocente.SelectedItem.ToString();
+            //    reserva.Asignatura = cmbAsignatura.SelectedItem.ToString();
+            //    reserva.LaboratorioId = ln_laboratorio.ObtenerLaboratorioPorNombre(cmbLaboratorio.SelectedItem.ToString())[0].Id;
+            //    reserva.Fecha = dtpFecha.Value.Date;
+            //    reserva.HoraInicio = dtpInicio.Value.TimeOfDay;
+            //    reserva.HoraFin = dtpFinal.Value.TimeOfDay;
+            //    reserva.CantEstudiantes = int.Parse(txtCantResv.Text);
+            //    if (ln_reserva.ValidarDisponibilidad(reserva) && ln_reserva.ValidarCapacidad(reserva, laboratorioSeleccionado[0].Capacidad))
+            //    {
+            //        ln_reserva.ModificarReserva(reserva);
+            //        MessageBox.Show("Reserva guardada");
+            //        is_reserva_nueva = false;
+            //        HabilitarCampos(false);
+            //        limpiar_controles();
+            //        CargarReservasGrid();
 
-                        btnGrabarResv.Enabled = false;
-                        btnNuevoResv.Enabled = true;
-                        btnEliminarResv.Enabled = true;
-                    }
-                    else
-                    {
-                        MessageBox.Show("El laboratorio no está disponible en la fecha y hora seleccionadas.");
-                    }
-                }
-            }
+            //        btnGrabarResv.Enabled = false;
+            //        btnNuevoResv.Enabled = true;
+            //        btnEliminarResv.Enabled = true;
+            //    }
+            //    else
+            //    {
+            //        MessageBox.Show("El laboratorio no está disponible en la fecha y hora seleccionadas.");
+            //    }
+            //}
+            //}
 
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message);
+            //}
         }
 
         private void btnEliminarResv_Click(object sender, EventArgs e)
@@ -239,54 +239,55 @@ namespace APPreservaLabUI.UI
 
         private void dgvListaReservas_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            try
-            {
-                if (e.RowIndex >= 0)
-                {
-                    is_reserva_nueva = false;
-                    DataGridViewRow fila = dgvListaReservas.Rows[e.RowIndex];
-                    txtId.Text = fila.Cells["dgvIdResv"].Value?.ToString() ?? "";
-                    cmbDocente.SelectedItem = fila.Cells["dgvDocenteResv"].Value?.ToString() ?? "";
-                    cmbAsignatura.SelectedItem = fila.Cells["dgvAsignaturaResv"].Value?.ToString() ?? "";
+            //try
+            //{
+            //    if (e.RowIndex >= 0)
+            //    {
+            //        is_reserva_nueva = false;
+            //        DataGridViewRow fila = dgvListaReservas.Rows[e.RowIndex];
+            //        txtId.Text = fila.Cells["dgvIdResv"].Value?.ToString() ?? "";
+            //        cmbDocente.SelectedItem = fila.Cells["dgvDocenteResv"].Value?.ToString() ?? "";
+            //        cmbAsignatura.SelectedItem = fila.Cells["dgvAsignaturaResv"].Value?.ToString() ?? "";
 
-                    cmbLaboratorio.SelectedItem = ln_laboratorio.ObtenerLaboratorioPorId(int.Parse(fila.Cells["dgvLaboratorioResv"].Value.ToString())).Nombre ?? "";
-                    dtpFecha.Value = Convert.ToDateTime(fila.Cells["dgvFechaResv"].Value);
-                    dtpInicio.Value = DateTime.Today.Add((TimeSpan)fila.Cells["dgvHoraInicioResv"].Value);
-                    dtpFinal.Value = DateTime.Today.Add((TimeSpan)fila.Cells["dgvHoraFinResv"].Value);
-                    txtCantResv.Text = fila.Cells["dgvCantidadPersonasResv"].Value?.ToString() ?? "";
-                    HabilitarCampos(true);
-                    btnGrabarResv.Enabled = true;
-                    btnEliminarResv.Enabled = true;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al cargar los datos de la reserva.");
-                Console.WriteLine(ex.Message);
-            }
+            //        cmbLaboratorio.SelectedItem = ln_laboratorio.ObtenerLaboratorioPorId(int.Parse(fila.Cells["dgvLaboratorioResv"].Value.ToString())).Nombre ?? "";
+            //        dtpFecha.Value = Convert.ToDateTime(fila.Cells["dgvFechaResv"].Value);
+            //        dtpInicio.Value = DateTime.Today.Add((TimeSpan)fila.Cells["dgvHoraInicioResv"].Value);
+            //        dtpFinal.Value = DateTime.Today.Add((TimeSpan)fila.Cells["dgvHoraFinResv"].Value);
+            //        txtCantResv.Text = fila.Cells["dgvCantidadPersonasResv"].Value?.ToString() ?? "";
+            //        HabilitarCampos(true);
+            //        btnGrabarResv.Enabled = true;
+            //        btnEliminarResv.Enabled = true;
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show("Error al cargar los datos de la reserva.");
+            //    Console.WriteLine(ex.Message);
+            //}
+
         }
 
         private void btnBuscarResv_Click(object sender, EventArgs e)
         {
             string nombreLab = txtBuscarResv.Text;
 
-            var labsCoincidentes = ln_laboratorio.ObtenerLaboratorioPorNombre(nombreLab);
-            if (labsCoincidentes.Count == 0)
-            {
-                MessageBox.Show("No se encontraron laboratorios.");
-                return;
-            }
-            var idsLabs = labsCoincidentes
-                .Select(l => l.Id)
-                .ToHashSet();
+            //var labsCoincidentes = ln_laboratorio.ObtenerLaboratorioPorNombre(nombreLab);
+            //if (labsCoincidentes.Count == 0)
+            //{
+            //    MessageBox.Show("No se encontraron laboratorios.");
+            //    return;
+            //}
+            //var idsLabs = labsCoincidentes
+            //    .Select(l => l.Id)
+            //    .ToHashSet();
 
-            var reservasFiltradas = ln_reserva.lista_reservas
-                .Where(r => idsLabs.Contains(r.LaboratorioId))
-                .ToList();
+            //var reservasFiltradas = ln_reserva.lista_reservas
+            //    .Where(r => idsLabs.Contains(r.LaboratorioId))
+            //    .ToList();
 
-            dgvListaReservas.DataSource = null;
-            dgvListaReservas.DataSource = reservasFiltradas;
-            dgvListaReservas.ClearSelection();
+            //dgvListaReservas.DataSource = null;
+            //dgvListaReservas.DataSource = reservasFiltradas;
+            //dgvListaReservas.ClearSelection();
         }
 
         private void dgvListaReservas_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -296,12 +297,12 @@ namespace APPreservaLabUI.UI
                 if (e.Value != null)
                 {
                     int labId = (int)e.Value;
-                    var laboratorio = ln_laboratorio.ObtenerLaboratorioPorId(labId);
-                    if (laboratorio != null)
-                    {
-                        e.Value = laboratorio.Nombre;
-                        e.FormattingApplied = true;
-                    }
+                    //var laboratorio = ln_laboratorio.ObtenerLaboratorioPorId(labId);
+                    //if (laboratorio != null)
+                    //{
+                    //    e.Value = laboratorio.Nombre;
+                    //    e.FormattingApplied = true;
+                    //}
                 }
             }
         }

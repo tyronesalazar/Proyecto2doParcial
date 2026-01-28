@@ -27,6 +27,7 @@ namespace CapaDatos.SQL
             }
             catch (Exception)
             {
+                Console.WriteLine("Error executing SQL Non-Query.");
                 conn.closeConnection();
                 return false;
             }

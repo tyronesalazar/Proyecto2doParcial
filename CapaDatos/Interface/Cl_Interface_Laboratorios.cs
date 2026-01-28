@@ -17,5 +17,23 @@ namespace CapaDatos.Interface
             string sql = "SELECT * FROM listar_laboratorios();";
             return obj_sql.ExecuteSQLQuery(sql);
         }
+
+        public void InsertarLaboratorio(string nombre, int capacidad, bool activo)
+        {
+            string sql = "SELECT crear_laboratorio('" + nombre + "'," + capacidad + "," + activo + ")";
+            obj_sql.ExecuteSQLNonQuery(sql);
+        }
+
+        public void ModificarLaboratorio(int id, string nombre, int capacidad, bool activo)
+        {
+            string sql = "SELECT actualizar_laboratorio(" + id + ",'" + nombre + "'," + capacidad + "," + activo + ")";
+            obj_sql.ExecuteSQLNonQuery(sql);
+        }
+
+        public void EliminarLaboratorio(int id)
+        {
+            string sql = "SELECT eliminar_laboratorio(" + id + ")";
+            obj_sql.ExecuteSQLNonQuery(sql);
+        }
     }
 }

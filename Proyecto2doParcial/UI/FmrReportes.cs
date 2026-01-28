@@ -73,7 +73,7 @@ namespace CapaPresentacion.UI
 
                 txtHorasTotales.Text = horasTotales.ToString("F2");
                 txtReservasTotales.Text = totalReservas.ToString();
-                txtLabMasUsado.Text = ln_laboratorio.ObtenerLaboratorioPorId(idLabMasUsado)?.Nombre ?? "N/A";
+                //txtLabMasUsado.Text = ln_laboratorio.ObtenerLaboratorioPorId(idLabMasUsado)?.Nombre ?? "N/A";
 
             }
         }
@@ -85,12 +85,12 @@ namespace CapaPresentacion.UI
                 if (e.Value != null)
                 {
                     int labId = (int)e.Value;
-                    var laboratorio = ln_laboratorio.ObtenerLaboratorioPorId(labId);
-                    if (laboratorio != null)
-                    {
-                        e.Value = laboratorio.Nombre;
-                        e.FormattingApplied = true;
-                    }
+                    //var laboratorio = ln_laboratorio.ObtenerLaboratorioPorId(labId);
+                    //if (laboratorio != null)
+                    //{
+                    //    e.Value = laboratorio.Nombre;
+                    //    e.FormattingApplied = true;
+                    //}
                 }
             }
         }
