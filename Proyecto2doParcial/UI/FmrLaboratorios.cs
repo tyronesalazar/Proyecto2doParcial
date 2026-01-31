@@ -337,7 +337,7 @@ namespace APPreservaLabUI.UI
         {
             dgvGestionLab.AutoGenerateColumns = false;
             dgvGestionLab.DataSource = null;
-            //dgvGestionLab.DataSource = ln_laboratorio.ObtenerLaboratorioPorNombre(txtBuscarLab.Text);
+            dgvGestionLab.DataSource = ln_laboratorio.ObtenerLaboratorioPorNombre(txtBuscarLab.Text);
         }
     }
 }

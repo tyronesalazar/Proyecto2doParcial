@@ -53,29 +53,29 @@ namespace CapaPresentacion.UI
         }
         private void btnGenerarRep_Click(object sender, EventArgs e)
         {
-            var reservas = ln_reserva.GetReservasEnIntervalo(dtpFechaInicio.Value, dtpFechaFin.Value);
-            if (reservas.Count == 0)
-            {
-                MessageBox.Show("No hay reservas en el intervalo seleccionado.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                dgvGestionLab.DataSource = null;
-            }
-            else
-            {
-                int totalReservas = reservas.Count;
-                double horasTotales = ln_reserva.ObtenerHorasTotales(reservas);
+            //var reservas = ln_reserva.GetReservasEnIntervalo(dtpFechaInicio.Value, dtpFechaFin.Value);
+            //if (reservas.Count == 0)
+            //{
+            //    MessageBox.Show("No hay reservas en el intervalo seleccionado.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //    dgvGestionLab.DataSource = null;
+            //}
+            //else
+            //{
+            //    int totalReservas = reservas.Count;
+            //    double horasTotales = ln_reserva.ObtenerHorasTotales(reservas);
 
-                var reservasAgrupadas = ln_reportes.GenerarReporteReservas(reservas, horasTotales);
-                int idLabMasUsado = reservasAgrupadas.OrderByDescending(r => r.HorasReservadas).First().LaboratorioId;
+            //    var reservasAgrupadas = ln_reportes.GenerarReporteReservas(reservas, horasTotales);
+            //    int idLabMasUsado = reservasAgrupadas.OrderByDescending(r => r.HorasReservadas).First().LaboratorioId;
 
-                dgvGestionLab.DataSource = null;
-                dgvGestionLab.AutoGenerateColumns = false;
-                dgvGestionLab.DataSource = reservasAgrupadas;
+            //    dgvGestionLab.DataSource = null;
+            //    dgvGestionLab.AutoGenerateColumns = false;
+            //    dgvGestionLab.DataSource = reservasAgrupadas;
 
-                txtHorasTotales.Text = horasTotales.ToString("F2");
-                txtReservasTotales.Text = totalReservas.ToString();
-                //txtLabMasUsado.Text = ln_laboratorio.ObtenerLaboratorioPorId(idLabMasUsado)?.Nombre ?? "N/A";
+            //    txtHorasTotales.Text = horasTotales.ToString("F2");
+            //    txtReservasTotales.Text = totalReservas.ToString();
+            //    //txtLabMasUsado.Text = ln_laboratorio.ObtenerLaboratorioPorId(idLabMasUsado)?.Nombre ?? "N/A";
 
-            }
+            //}
         }
 
         private void dgvGestionLab_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)

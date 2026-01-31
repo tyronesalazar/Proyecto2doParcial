@@ -35,5 +35,23 @@ namespace CapaDatos.Interface
             string sql = "SELECT eliminar_laboratorio(" + id + ")";
             obj_sql.ExecuteSQLNonQuery(sql);
         }
+
+        public DataTable ObtenerLaboratorioPorId(int id)
+        {
+            string sql = "SELECT * FROM laboratorios l WHERE l.id =" + id;
+            return obj_sql.ExecuteSQLQuery(sql);
+        }
+
+        public DataTable ObtenerLaboratorioPorNombre(string nombre)
+        {
+            string sql = "SELECT * FROM laboratorios l WHERE l.nombre ILIKE '%' || '" + nombre + "' || '%';";
+            return obj_sql.ExecuteSQLQuery(sql);
+        }
+
+        public DataTable ObtenerLaboratoriosActivos()
+        {
+            string sql = "SELECT * FROM laboratorios l WHERE l.activo = true;";
+            return obj_sql.ExecuteSQLQuery(sql);
+        }
     }
 }

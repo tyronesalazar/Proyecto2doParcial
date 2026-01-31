@@ -31,8 +31,7 @@ namespace CapaLogicaNegocio.Modelos
 
         public override string ToString()
         {
-            return Nombre;
+            return "Nombre: " + this.Nombre + ",Capacidad: " + this.Capacidad;
         }
-
     }
 }

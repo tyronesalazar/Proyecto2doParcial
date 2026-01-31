@@ -11,26 +11,6 @@ namespace CapaLogicaNegocio.LogicaNegocio
 {
     public class Cl_LN_Laboratorio
     {
-        //public List<Cl_Laboratorio> lista_laboratorios = new List<Cl_Laboratorio>();
-
-        //// Obtener siguiente ID
-        //public int GetNextId()
-        //{
-        //    if (lista_laboratorios.Count == 0)
-        //        return 1;
-        //    return lista_laboratorios[lista_laboratorios.Count - 1].Id + 1;
-        //}
-
-        // Retorna índice por ID
-        //public int GetIndiceLista(int id)
-        //{
-        //    for (int i = 0; i < lista_laboratorios.Count; i++)
-        //    {
-        //        if (lista_laboratorios[i].Id == id)
-        //            return i;
-        //    }
-        //    return -1;
-        //}
         private Cl_Interface_Laboratorios obj_laboratorio = new();
 
         // Obtener lista completa
@@ -58,34 +38,34 @@ namespace CapaLogicaNegocio.LogicaNegocio
             obj_laboratorio.EliminarLaboratorio(id);
         }
 
-        //public Cl_Laboratorio ObtenerLaboratorioPorId(int id)
-        //{
-        //    return lista_laboratorios.FirstOrDefault(lab => lab.Id == id);
-        //}
-        //public List<Cl_Laboratorio> ObtenerLaboratorioPorNombre(string nombre)
-        //{
-        //    return lista_laboratorios
-        //        .Where(lab => lab.Nombre.IndexOf(nombre, StringComparison.OrdinalIgnoreCase) >= 0)
-        //        .ToList();
-        //}
+        // Obtener laboratorio por Id
+        public Cl_Laboratorio ObtenerLaboratorioPorId(int id)
+        {
+            Cl_Laboratorio lab = new();
+            DataTable tabla = obj_laboratorio.ObtenerLaboratorioPorId(id);
+            foreach (DataRow row in tabla.Rows)
+            {
+                lab.Id = int.Parse(row["id"].ToString());
+                lab.Nombre = row["nombre"].ToString();
+                lab.Capacidad = int.Parse(row["capacidad"].ToString());
+                lab.Activo = bool.Parse(row["activo"].ToString());
+            }
+            return lab;
+        }
+        public DataTable ObtenerLaboratorioPorNombre(string nombre)
+        {
+            return obj_laboratorio.ObtenerLaboratorioPorNombre(nombre);
+        }
         //public List<Cl_Laboratorio> ObtenerLaboratoriosPorCapacidad(int capacidadMinima)
         //{
         //    return lista_laboratorios
         //        .Where(lab => lab.Capacidad >= capacidadMinima)
         //        .ToList();
         //}
-        ////obtener laboratorios activos
-        //public List<Cl_Laboratorio> ObtenerLaboratoriosActivos()
-        //{
-        //    List<Cl_Laboratorio> laboratoriosActivos = new List<Cl_Laboratorio>();
-        //    foreach (var lab in lista_laboratorios)
-        //    {
-        //        if (lab.Activo)
-        //        {
-        //            laboratoriosActivos.Add(lab);
-        //        }
-        //    }
-        //    return laboratoriosActivos;
-        //}
+        //obtener laboratorios activos
+        public DataTable ObtenerLaboratoriosActivos()
+        {
+            return obj_laboratorio.ObtenerLaboratoriosActivos();
+        }
     }
 }
