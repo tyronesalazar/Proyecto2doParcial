@@ -349,11 +349,10 @@
             dgvGestionLab.ShowRowErrors = false;
             dgvGestionLab.Size = new Size(991, 208);
             dgvGestionLab.TabIndex = 0;
-            dgvGestionLab.CellFormatting += dgvGestionLab_CellFormatting;
             // 
             // dgvlab
             // 
-            dgvlab.DataPropertyName = "LaboratorioId";
+            dgvlab.DataPropertyName = "laboratorio";
             dataGridViewCellStyle2.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dgvlab.DefaultCellStyle = dataGridViewCellStyle2;
             dgvlab.FillWeight = 200F;
@@ -372,7 +371,7 @@
             // 
             // dgvReservasCant
             // 
-            dgvReservasCant.DataPropertyName = "CantidadReservas";
+            dgvReservasCant.DataPropertyName = "cantidad_reservas";
             dgvReservasCant.FillWeight = 200F;
             dgvReservasCant.HeaderText = "Reservas";
             dgvReservasCant.MinimumWidth = 20;
@@ -381,7 +380,7 @@
             // 
             // dgvHorasResv
             // 
-            dgvHorasResv.DataPropertyName = "HorasReservadas";
+            dgvHorasResv.DataPropertyName = "horas_usadas";
             dataGridViewCellStyle3.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dgvHorasResv.DefaultCellStyle = dataGridViewCellStyle3;
             dgvHorasResv.HeaderText = "Horas";
@@ -390,7 +389,7 @@
             // 
             // dgvPorcentajeResv
             // 
-            dgvPorcentajeResv.DataPropertyName = "PorcentajeUso";
+            dgvPorcentajeResv.DataPropertyName = "porcentaje_uso";
             dgvPorcentajeResv.FillWeight = 200F;
             dgvPorcentajeResv.HeaderText = "% uso";
             dgvPorcentajeResv.MinimumWidth = 20;

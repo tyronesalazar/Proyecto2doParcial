@@ -18,25 +18,27 @@ namespace CapaLogicaNegocio.LogicaNegocio
             return obj_interface_reservas.GetReservas();
         }
 
-        //public List<Cl_Reserva> GetReservasEnIntervalo(DateTime fechaInicio, DateTime fechaFin)
-        //{
-        //    return lista_reservas.Where(reserva => reserva.Fecha.Date >= fechaInicio.Date && reserva.Fecha.Date <= fechaFin.Date).ToList();
-        //}
+        public DataTable GetReservasEnIntervalo(DateTime fechaInicio, DateTime fechaFin)
+        {
+            return obj_interface_reservas.ObtenerReservasEnIntervalo(fechaInicio, fechaFin);
+        }
 
         public DataTable GetReservasPorLaboratorio(string labName)
         {
             return obj_interface_reservas.ObtenerReservasPorLab(labName);
         }
 
-        //public double ObtenerHorasTotales(List<Cl_Reserva> reservas)
-        //{
-        //    double totalHoras = 0;
-        //    foreach (var reserva in reservas)
-        //    {
-        //        totalHoras += (int)(reserva.HoraFin - reserva.HoraInicio).TotalHours;
-        //    }
-        //    return Math.Round(totalHoras, 2);
-        //}
+        public double ObtenerHorasTotales(DataTable reservas)
+        {
+            double totalHoras = 0;
+            foreach (DataRow reserva in reservas.Rows)
+            {
+                TimeSpan horaInicio = TimeSpan.Parse(reserva["hora_inicio"].ToString());
+                TimeSpan horaFin = TimeSpan.Parse(reserva["hora_fin"].ToString());
+                totalHoras += (int)(horaInicio - horaFin).TotalHours;
+            }
+            return Math.Round(totalHoras, 2);
+        }
 
         public void CrearReserva(Cl_Reserva res)
         {

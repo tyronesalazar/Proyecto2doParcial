@@ -1,6 +1,7 @@
 ﻿using CapaLogicaNegocio.Modelos;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,29 +10,34 @@ namespace CapaLogicaNegocio.LogicaNegocio
 {
     public class Cl_LN_Reportes
     {
-        public List<Cl_DetallesReportes> detalle_reporte = new List<Cl_DetallesReportes>();
 
-        public List<Cl_DetallesReportes> GenerarReporteReservas(List<Cl_Reserva> reservas, double horasTotalesDisponiblesPorLab)
+        public Cl_DetallesReportes GenerarReporte(DataTable reservas)
         {
-            var reporte = reservas
-                .GroupBy(r => r.LaboratorioId)
-                .Select(g =>
+            Cl_DetallesReportes reporte = new Cl_DetallesReportes();
+
+            decimal horasTotales = 0;
+            long totalReservas = 0;
+            decimal maxHoras = 0;
+            string laboratorioMasUsado = string.Empty;
+
+            foreach (DataRow reserva in reservas.Rows)
+            {
+                decimal horas = reserva.Field<decimal>("horas_usadas");
+                long reservasTotales = reserva.Field<long>("cantidad_reservas");
+                string laboratorio = reserva.Field<string>("laboratorio");
+
+                horasTotales += horas;
+                totalReservas += reservasTotales;
+
+                if (horas > maxHoras)
                 {
-                    double horasReservadas = g.Sum(r => (r.HoraFin - r.HoraInicio).TotalHours);
-                    int cantidadReservas = g.Count();
-
-                    return new Cl_DetallesReportes
-                    {
-                        LaboratorioId = g.Key,
-                        CantidadReservas = cantidadReservas,
-                        HorasReservadas = Math.Round(horasReservadas, 2),
-                        PorcentajeUso = Math.Round(horasTotalesDisponiblesPorLab > 0
-                            ? (horasReservadas / horasTotalesDisponiblesPorLab) * 100
-                            : 0, 2)
-                    };
-                })
-                .ToList();
-
+                    maxHoras = horas;
+                    laboratorioMasUsado = laboratorio;
+                }
+            }
+            reporte.TotalHoras = Math.Round(horasTotales, 2);
+            reporte.TotalReservas = totalReservas;
+            reporte.LabMasUsado = laboratorioMasUsado;
             return reporte;
         }
     }
