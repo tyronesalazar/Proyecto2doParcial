@@ -27,6 +27,8 @@ namespace APPreservaLabUI.UI
             txtBuscarLab.Enter += txtBuscarLab_Enter;
             txtBuscarLab.Leave += txtBuscarLab_Leave;
 
+            CargarLaboratoriosGrid();
+
             btnGrabarLab.Enabled = false;
             btnEliminarLab.Enabled = false;
             btnNuevoLab.Enabled = true;
@@ -111,13 +113,22 @@ namespace APPreservaLabUI.UI
 
                 if (is_lab_nuevo)
                 {
-                    lab.Id = ln_laboratorio.GetNextId();
                     lab.Nombre = txtNombreLab.Text;
                     lab.Capacidad = int.Parse(txtCapacidadLab.Text);
                     lab.Activo = chkActivo.Checked;
 
-                    ln_laboratorio.CrearLaboratorio(lab);
-                    MessageBox.Show("Laboratorio creado exitosamente.");
+                    try
+                    {
+                        btnGrabarLab.Enabled = false;
+                        ln_laboratorio.CrearLaboratorio(lab);
+                        btnGrabarLab.Enabled = true;
+                        MessageBox.Show("Laboratorio creado exitosamente.");
+                    }
+                    catch (Exception)
+                    {
+                        btnGrabarLab.Enabled = true;
+                        MessageBox.Show("Error al crear el laboratorio.");
+                    }
                 }
                 else
                 {

@@ -53,46 +53,36 @@ namespace CapaPresentacion.UI
         }
         private void btnGenerarRep_Click(object sender, EventArgs e)
         {
-            var reservas = ln_reserva.GetReservasEnIntervalo(dtpFechaInicio.Value, dtpFechaFin.Value);
-            if (reservas.Count == 0)
+            try
             {
-                MessageBox.Show("No hay reservas en el intervalo seleccionado.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                dgvGestionLab.DataSource = null;
-            }
-            else
-            {
-                int totalReservas = reservas.Count;
-                double horasTotales = ln_reserva.ObtenerHorasTotales(reservas);
+                DataTable reservas = ln_reserva.GetReservasEnIntervalo(dtpFechaInicio.Value, dtpFechaFin.Value);
 
-                var reservasAgrupadas = ln_reportes.GenerarReporteReservas(reservas, horasTotales);
-                int idLabMasUsado = reservasAgrupadas.OrderByDescending(r => r.HorasReservadas).First().LaboratorioId;
-
-                dgvGestionLab.DataSource = null;
-                dgvGestionLab.AutoGenerateColumns = false;
-                dgvGestionLab.DataSource = reservasAgrupadas;
-
-                txtHorasTotales.Text = horasTotales.ToString("F2");
-                txtReservasTotales.Text = totalReservas.ToString();
-                txtLabMasUsado.Text = ln_laboratorio.ObtenerLaboratorioPorId(idLabMasUsado)?.Nombre ?? "N/A";
-
-            }
-        }
-
-        private void dgvGestionLab_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
-        {
-            if (dgvGestionLab.Columns[e.ColumnIndex].Name == "dgvlab")
-            {
-                if (e.Value != null)
+                if (reservas.Rows.Count == 0)
                 {
-                    int labId = (int)e.Value;
-                    var laboratorio = ln_laboratorio.ObtenerLaboratorioPorId(labId);
-                    if (laboratorio != null)
-                    {
-                        e.Value = laboratorio.Nombre;
-                        e.FormattingApplied = true;
-                    }
+                    MessageBox.Show("No hay reservas en el intervalo seleccionado.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    dgvGestionLab.DataSource = null;
+                }
+                else
+                {
+                    Cl_DetallesReportes detalles = ln_reportes.GenerarReporte(reservas);
+
+                    dgvGestionLab.DataSource = null;
+                    dgvGestionLab.AutoGenerateColumns = false;
+                    dgvGestionLab.DataSource = reservas;
+
+                    txtHorasTotales.Text = detalles.TotalHoras.ToString();
+                    txtReservasTotales.Text = detalles.TotalReservas.ToString();
+                    txtLabMasUsado.Text = detalles.LabMasUsado;
+
                 }
             }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                MessageBox.Show("Ocurrió un error al generar el reporte.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                throw;
+            }
+
         }
     }
 }

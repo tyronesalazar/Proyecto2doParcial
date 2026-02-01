@@ -1,9 +1,8 @@
-using CapaLogicaNegocio.LogicaNegocio;
+using APPreservaLabUI.UI;
 using FontAwesome.Sharp;
+using CapaLogicaNegocio.LogicaNegocio;
 using System.Runtime.InteropServices;
-using System.Windows.Automation;
-using CapaPresentacion.UI;
-namespace APPreservaLabUI
+namespace CapaPresentacion.UI
 {
     public partial class FmrPrincipal : Form
     {

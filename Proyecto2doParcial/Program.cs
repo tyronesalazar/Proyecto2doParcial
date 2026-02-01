@@ -1,3 +1,4 @@
+using CapaPresentacion.UI;
 namespace Proyecto2doParcial
 {
     internal static class Program
@@ -11,7 +12,7 @@ namespace Proyecto2doParcial
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new Form1());
+            Application.Run(new FmrPrincipal());
         }
     }
 }
