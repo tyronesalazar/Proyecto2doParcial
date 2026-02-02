@@ -82,8 +82,8 @@ namespace CapaPresentacion.UI
                     Cl_Usuario usuario = ln_usuarios.ObtenerUsuario(txtCedulaUsu.Text);
                     this.Hide();
                     FmrPrincipal mainForm = new(usuario);
-                    mainForm.ShowDialog();
-                    this.Close();
+                    mainForm.Show(); 
+
                 }
                 else
                 {

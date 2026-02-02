@@ -28,14 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle10 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle11 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle12 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FmrReportes));
             panelFmrLab = new Panel();
+            btnExportar = new Button();
             panelUsado = new Panel();
             txtLabMasUsado = new TextBox();
             label6 = new Label();
@@ -79,6 +80,7 @@
             // 
             panelFmrLab.Anchor = AnchorStyles.None;
             panelFmrLab.BackColor = Color.White;
+            panelFmrLab.Controls.Add(btnExportar);
             panelFmrLab.Controls.Add(panelUsado);
             panelFmrLab.Controls.Add(panelHoras);
             panelFmrLab.Controls.Add(panelTotal);
@@ -92,12 +94,26 @@
             panelFmrLab.Size = new Size(1103, 598);
             panelFmrLab.TabIndex = 8;
             // 
+            // btnExportar
+            // 
+            btnExportar.BackColor = Color.FromArgb(0, 57, 108);
+            btnExportar.FlatAppearance.BorderSize = 0;
+            btnExportar.FlatStyle = FlatStyle.Flat;
+            btnExportar.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnExportar.ForeColor = Color.White;
+            btnExportar.Location = new Point(948, 556);
+            btnExportar.Name = "btnExportar";
+            btnExportar.Size = new Size(125, 33);
+            btnExportar.TabIndex = 29;
+            btnExportar.Text = "Exportar";
+            btnExportar.UseVisualStyleBackColor = false;
+            // 
             // panelUsado
             // 
             panelUsado.BackColor = Color.FromArgb(242, 248, 255);
             panelUsado.Controls.Add(txtLabMasUsado);
             panelUsado.Controls.Add(label6);
-            panelUsado.Location = new Point(713, 212);
+            panelUsado.Location = new Point(725, 207);
             panelUsado.Name = "panelUsado";
             panelUsado.Size = new Size(121, 87);
             panelUsado.TabIndex = 28;
@@ -126,7 +142,7 @@
             panelHoras.BackColor = Color.FromArgb(242, 248, 255);
             panelHoras.Controls.Add(txtHorasTotales);
             panelHoras.Controls.Add(label5);
-            panelHoras.Location = new Point(473, 212);
+            panelHoras.Location = new Point(485, 207);
             panelHoras.Name = "panelHoras";
             panelHoras.Size = new Size(121, 87);
             panelHoras.TabIndex = 28;
@@ -155,7 +171,7 @@
             panelTotal.BackColor = Color.FromArgb(242, 248, 255);
             panelTotal.Controls.Add(txtReservasTotales);
             panelTotal.Controls.Add(label2);
-            panelTotal.Location = new Point(232, 212);
+            panelTotal.Location = new Point(244, 207);
             panelTotal.Name = "panelTotal";
             panelTotal.Size = new Size(121, 87);
             panelTotal.TabIndex = 27;
@@ -189,7 +205,7 @@
             panelBarra.Controls.Add(dtpFechaInicio);
             panelBarra.Controls.Add(label1);
             panelBarra.Controls.Add(dtpFechaFin);
-            panelBarra.Location = new Point(27, 146);
+            panelBarra.Location = new Point(27, 142);
             panelBarra.Name = "panelBarra";
             panelBarra.Size = new Size(1046, 56);
             panelBarra.TabIndex = 26;
@@ -275,9 +291,9 @@
             panelTabla.BackColor = Color.FromArgb(242, 248, 255);
             panelTabla.Controls.Add(label11);
             panelTabla.Controls.Add(dgvGestionLab);
-            panelTabla.Location = new Point(27, 321);
+            panelTabla.Location = new Point(27, 303);
             panelTabla.Name = "panelTabla";
-            panelTabla.Size = new Size(1046, 265);
+            panelTabla.Size = new Size(1046, 244);
             panelTabla.TabIndex = 20;
             // 
             // label11
@@ -286,7 +302,7 @@
             label11.BackColor = Color.FromArgb(242, 248, 255);
             label11.Font = new Font("Century Gothic", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label11.ForeColor = Color.FromArgb(0, 57, 108);
-            label11.Location = new Point(376, 14);
+            label11.Location = new Point(405, 10);
             label11.Name = "label11";
             label11.Size = new Size(223, 23);
             label11.TabIndex = 35;
@@ -302,59 +318,59 @@
             dgvGestionLab.BorderStyle = BorderStyle.None;
             dgvGestionLab.CellBorderStyle = DataGridViewCellBorderStyle.Raised;
             dgvGestionLab.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(0, 57, 108);
-            dataGridViewCellStyle1.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle1.ForeColor = Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(0, 57, 108);
-            dataGridViewCellStyle1.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dgvGestionLab.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = Color.FromArgb(0, 57, 108);
+            dataGridViewCellStyle7.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle7.ForeColor = Color.White;
+            dataGridViewCellStyle7.SelectionBackColor = Color.FromArgb(0, 57, 108);
+            dataGridViewCellStyle7.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.True;
+            dgvGestionLab.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             dgvGestionLab.ColumnHeadersHeight = 43;
             dgvGestionLab.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dgvGestionLab.Columns.AddRange(new DataGridViewColumn[] { dgvlab, dgvLabId, dgvReservasCant, dgvHorasResv, dgvPorcentajeResv });
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = Color.FromArgb(242, 248, 255);
-            dataGridViewCellStyle4.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle4.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.False;
-            dgvGestionLab.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle10.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = Color.FromArgb(242, 248, 255);
+            dataGridViewCellStyle10.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle10.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle10.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = DataGridViewTriState.False;
+            dgvGestionLab.DefaultCellStyle = dataGridViewCellStyle10;
             dgvGestionLab.EnableHeadersVisualStyles = false;
             dgvGestionLab.GridColor = Color.FromArgb(0, 57, 108);
-            dgvGestionLab.Location = new Point(26, 45);
+            dgvGestionLab.Location = new Point(26, 40);
             dgvGestionLab.MultiSelect = false;
             dgvGestionLab.Name = "dgvGestionLab";
             dgvGestionLab.ReadOnly = true;
             dgvGestionLab.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = Color.FromArgb(0, 57, 108);
-            dataGridViewCellStyle5.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle5.ForeColor = Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = Color.FromArgb(0, 57, 108);
-            dataGridViewCellStyle5.SelectionForeColor = Color.White;
-            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
-            dgvGestionLab.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
-            dataGridViewCellStyle6.BackColor = Color.FromArgb(242, 248, 255);
-            dataGridViewCellStyle6.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle6.ForeColor = Color.Black;
-            dataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(213, 232, 255);
-            dataGridViewCellStyle6.SelectionForeColor = Color.Black;
-            dgvGestionLab.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle11.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = Color.FromArgb(0, 57, 108);
+            dataGridViewCellStyle11.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle11.ForeColor = Color.White;
+            dataGridViewCellStyle11.SelectionBackColor = Color.FromArgb(0, 57, 108);
+            dataGridViewCellStyle11.SelectionForeColor = Color.White;
+            dataGridViewCellStyle11.WrapMode = DataGridViewTriState.True;
+            dgvGestionLab.RowHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle12.BackColor = Color.FromArgb(242, 248, 255);
+            dataGridViewCellStyle12.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle12.ForeColor = Color.Black;
+            dataGridViewCellStyle12.SelectionBackColor = Color.FromArgb(213, 232, 255);
+            dataGridViewCellStyle12.SelectionForeColor = Color.Black;
+            dgvGestionLab.RowsDefaultCellStyle = dataGridViewCellStyle12;
             dgvGestionLab.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvGestionLab.ShowCellErrors = false;
             dgvGestionLab.ShowCellToolTips = false;
             dgvGestionLab.ShowEditingIcon = false;
             dgvGestionLab.ShowRowErrors = false;
-            dgvGestionLab.Size = new Size(991, 208);
+            dgvGestionLab.Size = new Size(991, 180);
             dgvGestionLab.TabIndex = 0;
             // 
             // dgvlab
             // 
             dgvlab.DataPropertyName = "laboratorio";
-            dataGridViewCellStyle2.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dgvlab.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dgvlab.DefaultCellStyle = dataGridViewCellStyle8;
             dgvlab.FillWeight = 200F;
             dgvlab.HeaderText = "Laboratorio";
             dgvlab.MinimumWidth = 20;
@@ -381,8 +397,8 @@
             // dgvHorasResv
             // 
             dgvHorasResv.DataPropertyName = "horas_usadas";
-            dataGridViewCellStyle3.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dgvHorasResv.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dgvHorasResv.DefaultCellStyle = dataGridViewCellStyle9;
             dgvHorasResv.HeaderText = "Horas";
             dgvHorasResv.Name = "dgvHorasResv";
             dgvHorasResv.ReadOnly = true;
@@ -496,5 +512,6 @@
         private DataGridViewTextBoxColumn dgvReservasCant;
         private DataGridViewTextBoxColumn dgvHorasResv;
         private DataGridViewTextBoxColumn dgvPorcentajeResv;
+        private Button btnExportar;
     }
 }

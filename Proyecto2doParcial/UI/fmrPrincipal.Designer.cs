@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FmrPrincipal));
             panelMenu = new Panel();
+            btnGestionUsuarios = new FontAwesome.Sharp.IconButton();
             btnReportes = new FontAwesome.Sharp.IconButton();
             btnReservas = new FontAwesome.Sharp.IconButton();
             btnLaboratorios = new FontAwesome.Sharp.IconButton();
@@ -45,7 +46,7 @@
             panelDesktop = new Panel();
             label1 = new Label();
             pictureBox1 = new PictureBox();
-            btnGestionUsuarios = new FontAwesome.Sharp.IconButton();
+            btnCerrarSesion = new FontAwesome.Sharp.IconButton();
             panelMenu.SuspendLayout();
             PanelLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)btnHome).BeginInit();
@@ -58,6 +59,7 @@
             // panelMenu
             // 
             panelMenu.BackColor = Color.FromArgb(12, 43, 78);
+            panelMenu.Controls.Add(btnCerrarSesion);
             panelMenu.Controls.Add(btnGestionUsuarios);
             panelMenu.Controls.Add(btnReportes);
             panelMenu.Controls.Add(btnReservas);
@@ -68,6 +70,29 @@
             panelMenu.Name = "panelMenu";
             panelMenu.Size = new Size(236, 691);
             panelMenu.TabIndex = 0;
+            // 
+            // btnGestionUsuarios
+            // 
+            btnGestionUsuarios.Dock = DockStyle.Top;
+            btnGestionUsuarios.FlatAppearance.BorderSize = 0;
+            btnGestionUsuarios.FlatStyle = FlatStyle.Flat;
+            btnGestionUsuarios.Font = new Font("Century Gothic", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnGestionUsuarios.ForeColor = Color.White;
+            btnGestionUsuarios.IconChar = FontAwesome.Sharp.IconChar.User;
+            btnGestionUsuarios.IconColor = Color.White;
+            btnGestionUsuarios.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnGestionUsuarios.IconSize = 32;
+            btnGestionUsuarios.ImageAlign = ContentAlignment.MiddleLeft;
+            btnGestionUsuarios.Location = new Point(0, 380);
+            btnGestionUsuarios.Name = "btnGestionUsuarios";
+            btnGestionUsuarios.Padding = new Padding(10, 0, 20, 0);
+            btnGestionUsuarios.Size = new Size(236, 60);
+            btnGestionUsuarios.TabIndex = 4;
+            btnGestionUsuarios.Text = "Gestión Usuarios";
+            btnGestionUsuarios.TextAlign = ContentAlignment.MiddleLeft;
+            btnGestionUsuarios.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnGestionUsuarios.UseVisualStyleBackColor = true;
+            btnGestionUsuarios.Click += btnGestionUsuarios_Click;
             // 
             // btnReportes
             // 
@@ -296,28 +321,28 @@
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
             // 
-            // btnGestionUsuarios
+            // btnCerrarSesion
             // 
-            btnGestionUsuarios.Dock = DockStyle.Top;
-            btnGestionUsuarios.FlatAppearance.BorderSize = 0;
-            btnGestionUsuarios.FlatStyle = FlatStyle.Flat;
-            btnGestionUsuarios.Font = new Font("Century Gothic", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnGestionUsuarios.ForeColor = Color.White;
-            btnGestionUsuarios.IconChar = FontAwesome.Sharp.IconChar.User;
-            btnGestionUsuarios.IconColor = Color.White;
-            btnGestionUsuarios.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnGestionUsuarios.IconSize = 32;
-            btnGestionUsuarios.ImageAlign = ContentAlignment.MiddleLeft;
-            btnGestionUsuarios.Location = new Point(0, 380);
-            btnGestionUsuarios.Name = "btnGestionUsuarios";
-            btnGestionUsuarios.Padding = new Padding(10, 0, 20, 0);
-            btnGestionUsuarios.Size = new Size(236, 60);
-            btnGestionUsuarios.TabIndex = 4;
-            btnGestionUsuarios.Text = "Gestión Usuarios";
-            btnGestionUsuarios.TextAlign = ContentAlignment.TopLeft;
-            btnGestionUsuarios.TextImageRelation = TextImageRelation.ImageBeforeText;
-            btnGestionUsuarios.UseVisualStyleBackColor = true;
-            btnGestionUsuarios.Click += btnGestionUsuarios_Click;
+            btnCerrarSesion.Dock = DockStyle.Bottom;
+            btnCerrarSesion.FlatAppearance.BorderSize = 0;
+            btnCerrarSesion.FlatStyle = FlatStyle.Flat;
+            btnCerrarSesion.Font = new Font("Century Gothic", 15.75F, FontStyle.Underline, GraphicsUnit.Point, 0);
+            btnCerrarSesion.ForeColor = Color.White;
+            btnCerrarSesion.IconChar = FontAwesome.Sharp.IconChar.SignOutAlt;
+            btnCerrarSesion.IconColor = Color.White;
+            btnCerrarSesion.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnCerrarSesion.IconSize = 32;
+            btnCerrarSesion.ImageAlign = ContentAlignment.MiddleLeft;
+            btnCerrarSesion.Location = new Point(0, 631);
+            btnCerrarSesion.Name = "btnCerrarSesion";
+            btnCerrarSesion.Padding = new Padding(10, 0, 20, 0);
+            btnCerrarSesion.Size = new Size(236, 60);
+            btnCerrarSesion.TabIndex = 5;
+            btnCerrarSesion.Text = "Cerrar Sesión";
+            btnCerrarSesion.TextAlign = ContentAlignment.MiddleLeft;
+            btnCerrarSesion.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnCerrarSesion.UseVisualStyleBackColor = true;
+            btnCerrarSesion.Click += btnCerrarSesion_Click;
             // 
             // FmrPrincipal
             // 
@@ -361,5 +386,6 @@
         private FontAwesome.Sharp.IconButton btnMinus;
         private Label label1;
         private FontAwesome.Sharp.IconButton btnGestionUsuarios;
+        private FontAwesome.Sharp.IconButton btnCerrarSesion;
     }
 }

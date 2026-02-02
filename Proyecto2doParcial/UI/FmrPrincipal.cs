@@ -181,6 +181,26 @@ namespace CapaPresentacion.UI
             WindowState = FormWindowState.Minimized;
         }
 
+        private void btnCerrarSesion_Click(object sender, EventArgs e)
+        {
+            DialogResult resultado = MessageBox.Show(
+            "¿Deseas cerrar sesión?",
+            "Cerrar sesión",
+            MessageBoxButtons.YesNo,
+            MessageBoxIcon.Question);
 
+            if (resultado == DialogResult.Yes)
+            {
+                // Ocultar el principal
+                this.Hide();
+
+                // Volver a mostrar el login
+                FmrLogin loginForm = new FmrLogin();
+                loginForm.Show();
+
+            }
+
+
+        }
     }
 }
