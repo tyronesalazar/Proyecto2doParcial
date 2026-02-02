@@ -371,7 +371,6 @@
         private Panel panelMenu;
         private Panel PanelLogo;
         private FontAwesome.Sharp.IconButton btnLaboratorios;
-        private FontAwesome.Sharp.IconButton iconButton3;
         private FontAwesome.Sharp.IconButton btnReportes;
         private FontAwesome.Sharp.IconButton btnReservas;
         private PictureBox btnHome;

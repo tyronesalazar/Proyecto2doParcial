@@ -56,15 +56,23 @@ namespace CapaLogicaNegocio.LogicaNegocio
         //// validar fechas y horas de reserva
         public bool ValidarDisponibilidad(Cl_Reserva nueva_reserva)
         {
-            DataTable dt_reservas = obj_interface_reservas.GetReservas();
+            DataTable dt_reservas = obj_interface_reservas.ObtenerReservasPorFecha(nueva_reserva.Fecha);
+
+            if (dt_reservas.Rows.Count == 0)
+            {
+                return true;
+            }
 
             foreach (DataRow reserva in dt_reservas.Rows)
             {
-                if (reserva["id"].ToString().ToLower() == nueva_reserva.Id.ToString().ToLower()) return true;
-                if (reserva["laboratorio"].ToString().ToLower() == nueva_reserva.LaboratorioId.ToString().ToLower() &&
-                    reserva["fecha"].ToString().ToLower() == nueva_reserva.Fecha.Date.ToString().ToLower())
+                if (reserva.Field<int>("id") == nueva_reserva.Id) continue;
+                if (reserva.Field<int>("laboratorio_id") == nueva_reserva.LaboratorioId)
                 {
-                    if ((nueva_reserva.HoraInicio < TimeSpan.Parse(reserva["hora_inicio"].ToString())) && (nueva_reserva.HoraFin > TimeSpan.Parse(reserva["hora_final"].ToString())))
+                    if ((nueva_reserva.HoraInicio < reserva.Field<TimeOnly>("hora_inicio").ToTimeSpan()) && (nueva_reserva.HoraFin > reserva.Field<TimeOnly>("hora_fin").ToTimeSpan()))
+                    {
+                        return false;
+                    }
+                    else if ((nueva_reserva.HoraInicio >= reserva.Field<TimeOnly>("hora_inicio").ToTimeSpan()) && (nueva_reserva.HoraInicio < reserva.Field<TimeOnly>("hora_fin").ToTimeSpan()))
                     {
                         return false;
                     }

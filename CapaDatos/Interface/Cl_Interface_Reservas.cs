@@ -84,7 +84,16 @@ namespace CapaDatos.Interface
             string sql = "SELECT * FROM obtener_reservas_por_nombre_laboratorio('" + labName + "');";
             return obj_sql.ExecuteSQLQuery(sql);
         }
-
+        public DataTable ObtenerReservaPorId(int id)
+        {
+            string sql = "SELECT * FROM obtener_reserva_por_id(" + id + ");";
+            return obj_sql.ExecuteSQLQuery(sql);
+        }
+        public DataTable ObtenerReservasPorFecha(DateTime fecha)
+        {
+            string sql = $"SELECT * FROM obtener_reservas_por_fecha('{fecha:yyyy-MM-dd}')";
+            return obj_sql.ExecuteSQLQuery(sql);
+        }
         public DataTable ObtenerReservasEnIntervalo(DateTime fechaInicio, DateTime fechaFin)
         {
             Console.WriteLine(fechaInicio.ToString("yyyy-MM-dd") + "_" + fechaFin);
