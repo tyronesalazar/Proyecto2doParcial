@@ -170,16 +170,18 @@ namespace APPreservaLabUI.UI
                     cmbDocente.SelectedItem = fila.Cells["dgvDocenteResv"].Value?.ToString() ?? "";
                     cmbAsignatura.SelectedItem = fila.Cells["dgvAsignaturaResv"].Value?.ToString() ?? "";
 
+
                     cmbLaboratorio.SelectedItem = fila.Cells["dgvLaboratorioResv"].Value.ToString();
 
-                    DateTime fecha = DateTime.ParseExact(fila.Cells["dgvFechaResv"].Value.ToString(), "dd-MMM-yy", CultureInfo.InvariantCulture);
-                    dtpFecha.Value = fecha;
-
-                    TimeSpan horaInicio = TimeSpan.ParseExact(fila.Cells["dgvHoraInicioResv"].Value.ToString(), @"hh\:mm", CultureInfo.InvariantCulture);
-                    dtpInicio.Value = DateTime.Today.Add(horaInicio);
-
-                    TimeSpan horaFin = TimeSpan.ParseExact(fila.Cells["dgvHoraFinResv"].Value.ToString(), @"hh\:mm", CultureInfo.InvariantCulture);
-                    dtpFinal.Value = DateTime.Today.Add(horaFin);
+                    DataTable reserva = ln_reserva.GetReservaPorId(int.Parse(txtId.Text));
+                    foreach (DataRow row in reserva.Rows)
+                    {
+                        dtpFecha.Value = reserva.Rows[0].Field<DateOnly>("fecha").ToDateTime(TimeOnly.MinValue);
+                        TimeSpan horaInicio = reserva.Rows[0].Field<TimeOnly>("hora_inicio").ToTimeSpan();
+                        dtpInicio.Value = DateTime.Today.Add(horaInicio);
+                        TimeSpan horaFin = reserva.Rows[0].Field<TimeOnly>("hora_fin").ToTimeSpan();
+                        dtpFinal.Value = DateTime.Today.Add(horaFin);
+                    }
 
                     txtCantResv.Text = fila.Cells["dgvCantidadPersonasResv"].Value?.ToString() ?? "";
                     HabilitarCampos(true);

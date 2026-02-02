@@ -22,7 +22,10 @@ namespace CapaLogicaNegocio.LogicaNegocio
         {
             return obj_interface_reservas.ObtenerReservasEnIntervalo(fechaInicio, fechaFin);
         }
-
+        public DataTable GetReservaPorId(int id)
+        {
+            return obj_interface_reservas.ObtenerReservaPorId(id);
+        }
         public DataTable GetReservasPorLaboratorio(string labName)
         {
             return obj_interface_reservas.ObtenerReservasPorLab(labName);
