@@ -180,6 +180,7 @@
             ClientSize = new Size(463, 605);
             Controls.Add(panelFmrLogin);
             Name = "FmrLogin";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "FmrLogin";
             panelFmrLogin.ResumeLayout(false);
             panelFmrLogin.PerformLayout();
