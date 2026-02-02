@@ -28,13 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle10 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle11 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle12 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FmrReportes));
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             panelFmrLab = new Panel();
             btnExportar = new Button();
             panelUsado = new Panel();
@@ -56,15 +56,14 @@
             panelTabla = new Panel();
             label11 = new Label();
             dgvGestionLab = new DataGridView();
-            dgvlab = new DataGridViewTextBoxColumn();
-            dgvLabId = new DataGridViewTextBoxColumn();
-            dgvReservasCant = new DataGridViewTextBoxColumn();
-            dgvHorasResv = new DataGridViewTextBoxColumn();
-            dgvPorcentajeResv = new DataGridViewTextBoxColumn();
             panel1 = new Panel();
             panel4 = new Panel();
             pictureBox1 = new PictureBox();
             label3 = new Label();
+            dgvlab = new DataGridViewTextBoxColumn();
+            dgvReservasCant = new DataGridViewTextBoxColumn();
+            dgvHorasResv = new DataGridViewTextBoxColumn();
+            dgvPorcentajeResv = new DataGridViewTextBoxColumn();
             panelFmrLab.SuspendLayout();
             panelUsado.SuspendLayout();
             panelHoras.SuspendLayout();
@@ -107,6 +106,7 @@
             btnExportar.TabIndex = 29;
             btnExportar.Text = "Exportar";
             btnExportar.UseVisualStyleBackColor = false;
+            btnExportar.Click += btnExportar_Click;
             // 
             // panelUsado
             // 
@@ -318,25 +318,25 @@
             dgvGestionLab.BorderStyle = BorderStyle.None;
             dgvGestionLab.CellBorderStyle = DataGridViewCellBorderStyle.Raised;
             dgvGestionLab.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = Color.FromArgb(0, 57, 108);
-            dataGridViewCellStyle7.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle7.ForeColor = Color.White;
-            dataGridViewCellStyle7.SelectionBackColor = Color.FromArgb(0, 57, 108);
-            dataGridViewCellStyle7.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.True;
-            dgvGestionLab.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(0, 57, 108);
+            dataGridViewCellStyle1.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.ForeColor = Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(0, 57, 108);
+            dataGridViewCellStyle1.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgvGestionLab.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvGestionLab.ColumnHeadersHeight = 43;
             dgvGestionLab.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dgvGestionLab.Columns.AddRange(new DataGridViewColumn[] { dgvlab, dgvLabId, dgvReservasCant, dgvHorasResv, dgvPorcentajeResv });
-            dataGridViewCellStyle10.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = Color.FromArgb(242, 248, 255);
-            dataGridViewCellStyle10.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle10.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle10.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = DataGridViewTriState.False;
-            dgvGestionLab.DefaultCellStyle = dataGridViewCellStyle10;
+            dgvGestionLab.Columns.AddRange(new DataGridViewColumn[] { dgvlab, dgvReservasCant, dgvHorasResv, dgvPorcentajeResv });
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = Color.FromArgb(242, 248, 255);
+            dataGridViewCellStyle4.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle4.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.False;
+            dgvGestionLab.DefaultCellStyle = dataGridViewCellStyle4;
             dgvGestionLab.EnableHeadersVisualStyles = false;
             dgvGestionLab.GridColor = Color.FromArgb(0, 57, 108);
             dgvGestionLab.Location = new Point(26, 40);
@@ -344,20 +344,20 @@
             dgvGestionLab.Name = "dgvGestionLab";
             dgvGestionLab.ReadOnly = true;
             dgvGestionLab.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle11.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = Color.FromArgb(0, 57, 108);
-            dataGridViewCellStyle11.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle11.ForeColor = Color.White;
-            dataGridViewCellStyle11.SelectionBackColor = Color.FromArgb(0, 57, 108);
-            dataGridViewCellStyle11.SelectionForeColor = Color.White;
-            dataGridViewCellStyle11.WrapMode = DataGridViewTriState.True;
-            dgvGestionLab.RowHeadersDefaultCellStyle = dataGridViewCellStyle11;
-            dataGridViewCellStyle12.BackColor = Color.FromArgb(242, 248, 255);
-            dataGridViewCellStyle12.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle12.ForeColor = Color.Black;
-            dataGridViewCellStyle12.SelectionBackColor = Color.FromArgb(213, 232, 255);
-            dataGridViewCellStyle12.SelectionForeColor = Color.Black;
-            dgvGestionLab.RowsDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = Color.FromArgb(0, 57, 108);
+            dataGridViewCellStyle5.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle5.ForeColor = Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = Color.FromArgb(0, 57, 108);
+            dataGridViewCellStyle5.SelectionForeColor = Color.White;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
+            dgvGestionLab.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle6.BackColor = Color.FromArgb(242, 248, 255);
+            dataGridViewCellStyle6.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle6.ForeColor = Color.Black;
+            dataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(213, 232, 255);
+            dataGridViewCellStyle6.SelectionForeColor = Color.Black;
+            dgvGestionLab.RowsDefaultCellStyle = dataGridViewCellStyle6;
             dgvGestionLab.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvGestionLab.ShowCellErrors = false;
             dgvGestionLab.ShowCellToolTips = false;
@@ -365,52 +365,6 @@
             dgvGestionLab.ShowRowErrors = false;
             dgvGestionLab.Size = new Size(991, 180);
             dgvGestionLab.TabIndex = 0;
-            // 
-            // dgvlab
-            // 
-            dgvlab.DataPropertyName = "laboratorio";
-            dataGridViewCellStyle8.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dgvlab.DefaultCellStyle = dataGridViewCellStyle8;
-            dgvlab.FillWeight = 200F;
-            dgvlab.HeaderText = "Laboratorio";
-            dgvlab.MinimumWidth = 20;
-            dgvlab.Name = "dgvlab";
-            dgvlab.ReadOnly = true;
-            // 
-            // dgvLabId
-            // 
-            dgvLabId.DataPropertyName = "LaboratorioId";
-            dgvLabId.HeaderText = "id Lab";
-            dgvLabId.Name = "dgvLabId";
-            dgvLabId.ReadOnly = true;
-            dgvLabId.Visible = false;
-            // 
-            // dgvReservasCant
-            // 
-            dgvReservasCant.DataPropertyName = "cantidad_reservas";
-            dgvReservasCant.FillWeight = 200F;
-            dgvReservasCant.HeaderText = "Reservas";
-            dgvReservasCant.MinimumWidth = 20;
-            dgvReservasCant.Name = "dgvReservasCant";
-            dgvReservasCant.ReadOnly = true;
-            // 
-            // dgvHorasResv
-            // 
-            dgvHorasResv.DataPropertyName = "horas_usadas";
-            dataGridViewCellStyle9.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dgvHorasResv.DefaultCellStyle = dataGridViewCellStyle9;
-            dgvHorasResv.HeaderText = "Horas";
-            dgvHorasResv.Name = "dgvHorasResv";
-            dgvHorasResv.ReadOnly = true;
-            // 
-            // dgvPorcentajeResv
-            // 
-            dgvPorcentajeResv.DataPropertyName = "porcentaje_uso";
-            dgvPorcentajeResv.FillWeight = 200F;
-            dgvPorcentajeResv.HeaderText = "% uso";
-            dgvPorcentajeResv.MinimumWidth = 20;
-            dgvPorcentajeResv.Name = "dgvPorcentajeResv";
-            dgvPorcentajeResv.ReadOnly = true;
             // 
             // panel1
             // 
@@ -453,6 +407,44 @@
             label3.Size = new Size(527, 57);
             label3.TabIndex = 10;
             label3.Text = "Resumen de Reservas";
+            // 
+            // dgvlab
+            // 
+            dgvlab.DataPropertyName = "laboratorio";
+            dataGridViewCellStyle2.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dgvlab.DefaultCellStyle = dataGridViewCellStyle2;
+            dgvlab.FillWeight = 200F;
+            dgvlab.HeaderText = "Laboratorio";
+            dgvlab.MinimumWidth = 20;
+            dgvlab.Name = "dgvlab";
+            dgvlab.ReadOnly = true;
+            // 
+            // dgvReservasCant
+            // 
+            dgvReservasCant.DataPropertyName = "cantidad_reservas";
+            dgvReservasCant.FillWeight = 200F;
+            dgvReservasCant.HeaderText = "Reservas";
+            dgvReservasCant.MinimumWidth = 20;
+            dgvReservasCant.Name = "dgvReservasCant";
+            dgvReservasCant.ReadOnly = true;
+            // 
+            // dgvHorasResv
+            // 
+            dgvHorasResv.DataPropertyName = "horas_usadas";
+            dataGridViewCellStyle3.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dgvHorasResv.DefaultCellStyle = dataGridViewCellStyle3;
+            dgvHorasResv.HeaderText = "Horas";
+            dgvHorasResv.Name = "dgvHorasResv";
+            dgvHorasResv.ReadOnly = true;
+            // 
+            // dgvPorcentajeResv
+            // 
+            dgvPorcentajeResv.DataPropertyName = "porcentaje_uso";
+            dgvPorcentajeResv.FillWeight = 200F;
+            dgvPorcentajeResv.HeaderText = "% uso";
+            dgvPorcentajeResv.MinimumWidth = 20;
+            dgvPorcentajeResv.Name = "dgvPorcentajeResv";
+            dgvPorcentajeResv.ReadOnly = true;
             // 
             // FmrReportes
             // 
@@ -507,11 +499,10 @@
         private Label label5;
         private TextBox txtReservasTotales;
         private Label label7;
+        private Button btnExportar;
         private DataGridViewTextBoxColumn dgvlab;
-        private DataGridViewTextBoxColumn dgvLabId;
         private DataGridViewTextBoxColumn dgvReservasCant;
         private DataGridViewTextBoxColumn dgvHorasResv;
         private DataGridViewTextBoxColumn dgvPorcentajeResv;
-        private Button btnExportar;
     }
 }

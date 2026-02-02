@@ -1,18 +1,8 @@
 ﻿using CapaLogicaNegocio.LogicaNegocio;
 using CapaLogicaNegocio.Modelos;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Drawing.Text;
 using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace APPreservaLabUI.UI
 {
@@ -214,28 +204,6 @@ namespace APPreservaLabUI.UI
             dgvListaReservas.AutoGenerateColumns = false;
             dgvListaReservas.DataSource = null;
             dgvListaReservas.DataSource = reservasCoincidentes;
-        }
-
-        private void dgvListaReservas_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
-        {
-            //if (dgvListaReservas.Columns[e.ColumnIndex].Name == "dgvLaboratorioResv")
-            //{
-            //    if (e.Value != null)
-            //    {
-            //        int labId = (int)e.Value;
-            //        var laboratorio = ln_laboratorio.ObtenerLaboratorioPorId(labId);
-            //        Console.WriteLine("Formateando laboratorio con ID: " + labId);
-            //        if (laboratorio != null)
-            //        {
-            //            e.Value = laboratorio.Nombre;
-            //            e.FormattingApplied = true;
-            //        }
-            //    }
-            //}
-            //if (dgvListaReservas.Columns[e.ColumnIndex].Name == "dvgEstado")
-            //{
-            //    e.Value = "finalizada";
-            //}
         }
 
         private void btnGrabarResv_Click(object sender, EventArgs e)

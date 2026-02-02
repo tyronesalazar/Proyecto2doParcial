@@ -82,6 +82,7 @@ namespace CapaPresentacion.UI
         {
             txtUsuario.Text = string.Empty;
             txtContraseña.Text = string.Empty;
+            btnEliminarUsuario.Enabled = false;
         }
         private void toggleControles(bool valor)
         {
@@ -204,6 +205,7 @@ namespace CapaPresentacion.UI
                     txtContraseña.Text = contraseña;
                     chkEsAdmin.Checked = esAdmin;
                     usuario = new(id, cedula, contraseña, esAdmin);
+                    btnEliminarUsuario.Enabled = true;
                     toggleControles(true);
                 }
             }
@@ -229,6 +231,18 @@ namespace CapaPresentacion.UI
             dgvGestionUsuarios.DataSource = null;
             dgvGestionUsuarios.DataSource = usuariosBuscados;
 
+        }
+
+        private void btnEliminarUsuario_Click(object sender, EventArgs e)
+        {
+            var confirm = MessageBox.Show("¿Está seguro de que desea eliminar este usuario?", "Confirmar eliminación", MessageBoxButtons.YesNo);
+            if (confirm == DialogResult.Yes)
+            {
+                ln_usuarios.EliminarUsuario(usuario.CuentaId);
+                MessageBox.Show("Usuario eliminado con éxito.");
+                limpiar_controles();
+                cargarUsuariosGrid();
+            }
         }
     }
 }

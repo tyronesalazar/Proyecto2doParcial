@@ -471,7 +471,6 @@ namespace APPreservaLabUI.UI
             dgvListaReservas.Size = new Size(530, 268);
             dgvListaReservas.TabIndex = 0;
             dgvListaReservas.CellContentClick += dgvListaReservas_CellContentClick;
-            dgvListaReservas.CellFormatting += dgvListaReservas_CellFormatting;
             // 
             // dgvIdResv
             // 

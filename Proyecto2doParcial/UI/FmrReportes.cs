@@ -1,16 +1,11 @@
 ﻿using CapaLogicaNegocio.LogicaNegocio;
 using CapaLogicaNegocio.Modelos;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+using iText.Kernel.Pdf;
+using iText.Layout;
+using iText.Layout.Element;
+using iText.Layout.Properties;
 using System.Data;
-using System.Drawing;
-using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace CapaPresentacion.UI
 {
@@ -83,6 +78,67 @@ namespace CapaPresentacion.UI
                 throw;
             }
 
+        }
+        private void GenerarPdf()
+        {
+            try
+            {
+                using SaveFileDialog sfd = new SaveFileDialog();
+                sfd.Filter = "Archivo PDF (*.pdf)|*.pdf";
+                sfd.Title = "Guardar reporte";
+                sfd.FileName = $"reporte_{DateTime.Now:yyyyMMdd_HHmm}.pdf";
+
+                if (sfd.ShowDialog() != DialogResult.OK)
+                    return;
+
+                using var writer = new PdfWriter(sfd.FileName);
+                using var pdf = new PdfDocument(writer);
+                using var document = new iText.Layout.Document(pdf);
+
+                document.Add(new Paragraph("Reporte de reservas")
+                    .SetTextAlignment(TextAlignment.CENTER)
+                    .SetFontSize(18)
+                    .SimulateBold());
+
+                document.Add(new Paragraph($"Desde: {dtpFechaInicio.Value:dd/MM/yyyy} Hasta: {dtpFechaFin.Value:dd/MM/yyyy}")
+                    .SetTextAlignment(TextAlignment.CENTER)
+                    .SetFontSize(12)
+                    .SetMarginBottom(20));
+
+                document.Add(new Paragraph($"Total de reservas: {txtReservasTotales.Text}"));
+                document.Add(new Paragraph($"Total de horas reservadas: {txtHorasTotales.Text}"));
+                document.Add(new Paragraph($"Laboratorio más usado: {txtLabMasUsado.Text}")
+                    .SetMarginBottom(20));
+
+                Table tabla = new Table(dgvGestionLab.Columns.Count);
+                tabla.SetWidth(UnitValue.CreatePercentValue(100));
+
+                foreach (DataGridViewColumn col in dgvGestionLab.Columns)
+                {
+                    if (!col.Visible) continue;
+                    tabla.AddHeaderCell(new Cell().Add(new Paragraph(col.HeaderText).SimulateBold()));
+                }
+                foreach (DataGridViewRow row in dgvGestionLab.Rows)
+                {
+                    foreach (DataGridViewCell cell in row.Cells)
+                    {
+                        if (!cell.OwningColumn.Visible) continue;
+                        tabla.AddCell(new Cell().Add(new Paragraph(cell.Value?.ToString() ?? "")));
+                    }
+                }
+                document.Add(tabla);
+                MessageBox.Show("Reporte exportado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocurrió un error al exportar el reporte.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Console.WriteLine(ex.Message);
+                throw;
+            }
+        }
+        private void btnExportar_Click(object sender, EventArgs e)
+        {
+            GenerarPdf();
         }
     }
 }

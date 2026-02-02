@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle10 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FmrGestionUsuario));
             panelFmrGestionUsu = new Panel();
             btnNuevo = new Button();
@@ -117,6 +117,7 @@
             btnEliminarUsuario.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             btnEliminarUsuario.BackColor = Color.FromArgb(0, 57, 108);
             btnEliminarUsuario.Cursor = Cursors.Hand;
+            btnEliminarUsuario.Enabled = false;
             btnEliminarUsuario.FlatAppearance.BorderSize = 0;
             btnEliminarUsuario.FlatStyle = FlatStyle.Flat;
             btnEliminarUsuario.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -127,6 +128,7 @@
             btnEliminarUsuario.TabIndex = 23;
             btnEliminarUsuario.Text = "Eliminar";
             btnEliminarUsuario.UseVisualStyleBackColor = false;
+            btnEliminarUsuario.Click += btnEliminarUsuario_Click;
             // 
             // btnRegistrarUsuario
             // 
@@ -180,45 +182,45 @@
             dgvGestionUsuarios.BorderStyle = BorderStyle.None;
             dgvGestionUsuarios.CellBorderStyle = DataGridViewCellBorderStyle.Raised;
             dgvGestionUsuarios.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(0, 57, 108);
-            dataGridViewCellStyle1.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle1.ForeColor = Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(0, 57, 108);
-            dataGridViewCellStyle1.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dgvGestionUsuarios.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = Color.FromArgb(0, 57, 108);
+            dataGridViewCellStyle6.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle6.ForeColor = Color.White;
+            dataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(0, 57, 108);
+            dataGridViewCellStyle6.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
+            dgvGestionUsuarios.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             dgvGestionUsuarios.ColumnHeadersHeight = 43;
             dgvGestionUsuarios.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dgvGestionUsuarios.Columns.AddRange(new DataGridViewColumn[] { dgvId, dgvUsuario, dgvContrasena, dgvEsAdmin });
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = Color.FromArgb(242, 248, 255);
-            dataGridViewCellStyle3.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle3.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
-            dgvGestionUsuarios.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = Color.FromArgb(242, 248, 255);
+            dataGridViewCellStyle8.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle8.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.False;
+            dgvGestionUsuarios.DefaultCellStyle = dataGridViewCellStyle8;
             dgvGestionUsuarios.EnableHeadersVisualStyles = false;
             dgvGestionUsuarios.GridColor = Color.FromArgb(0, 57, 108);
             dgvGestionUsuarios.Location = new Point(16, 36);
             dgvGestionUsuarios.Name = "dgvGestionUsuarios";
             dgvGestionUsuarios.ReadOnly = true;
             dgvGestionUsuarios.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = Color.FromArgb(0, 57, 108);
-            dataGridViewCellStyle4.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle4.ForeColor = Color.White;
-            dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(0, 57, 108);
-            dataGridViewCellStyle4.SelectionForeColor = Color.White;
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
-            dgvGestionUsuarios.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            dataGridViewCellStyle5.BackColor = Color.FromArgb(242, 248, 255);
-            dataGridViewCellStyle5.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle5.ForeColor = Color.Black;
-            dataGridViewCellStyle5.SelectionBackColor = SystemColors.MenuHighlight;
-            dataGridViewCellStyle5.SelectionForeColor = Color.Black;
-            dgvGestionUsuarios.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = Color.FromArgb(0, 57, 108);
+            dataGridViewCellStyle9.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle9.ForeColor = Color.White;
+            dataGridViewCellStyle9.SelectionBackColor = Color.FromArgb(0, 57, 108);
+            dataGridViewCellStyle9.SelectionForeColor = Color.White;
+            dataGridViewCellStyle9.WrapMode = DataGridViewTriState.True;
+            dgvGestionUsuarios.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle10.BackColor = Color.FromArgb(242, 248, 255);
+            dataGridViewCellStyle10.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle10.ForeColor = Color.Black;
+            dataGridViewCellStyle10.SelectionBackColor = SystemColors.MenuHighlight;
+            dataGridViewCellStyle10.SelectionForeColor = Color.Black;
+            dgvGestionUsuarios.RowsDefaultCellStyle = dataGridViewCellStyle10;
             dgvGestionUsuarios.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvGestionUsuarios.ShowCellToolTips = false;
             dgvGestionUsuarios.ShowEditingIcon = false;
@@ -237,8 +239,8 @@
             // dgvUsuario
             // 
             dgvUsuario.DataPropertyName = "usuario";
-            dataGridViewCellStyle2.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dgvUsuario.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle7.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dgvUsuario.DefaultCellStyle = dataGridViewCellStyle7;
             dgvUsuario.FillWeight = 200F;
             dgvUsuario.HeaderText = "Usuario";
             dgvUsuario.MinimumWidth = 20;

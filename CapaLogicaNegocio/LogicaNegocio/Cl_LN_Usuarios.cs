@@ -24,6 +24,10 @@ namespace CapaLogicaNegocio.LogicaNegocio
         {
             obj_usuario.ActualizarUsuario(id, nombreUsuario, contrasena, esAdmin);
         }
+        public void EliminarUsuario(int id)
+        {
+            obj_usuario.EliminarUsuario(id);
+        }
         public bool ValidarContrasena(string cedula, string contrasena)
         {
             string pass = obj_usuario.ObtenerContrasena(cedula);

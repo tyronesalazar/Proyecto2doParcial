@@ -35,7 +35,22 @@ namespace CapaDatos.Interface
                 throw;
             }
         }
-
+        public void EliminarUsuario(int idUsuario)
+        {
+            try
+            {
+                string sql =
+            "SELECT eliminar_usuario(" +
+            idUsuario +
+            ");";
+                obj_sql.ExecuteSQLQuery(sql);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                throw;
+            }
+        }
         public void ActualizarUsuario(int idUsuario, string nombreUsuario, string contrasena, bool esAdmin)
         {
             try
