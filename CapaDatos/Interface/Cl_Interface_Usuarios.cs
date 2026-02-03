@@ -70,28 +70,6 @@ namespace CapaDatos.Interface
                 throw;
             }
         }
-        public bool ValidarUsuario(string nombreUsuario, string contrasena)
-        {
-            try
-            {
-                string sql =
-                    "SELECT validar_usuario(" +
-                    "'" + nombreUsuario + "', " +
-                    "'" + contrasena + "'" +
-                    ");";
-                DataTable result = obj_sql.ExecuteSQLQuery(sql);
-                if (result.Rows.Count > 0)
-                {
-                    return Convert.ToBoolean(result.Rows[0][0]);
-                }
-                return false;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-                throw;
-            }
-        }
         public string ObtenerContrasena(string cedula)
         {
             string sql = "SELECT obtener_contrasena_usuario('" + cedula + "');";

@@ -21,7 +21,6 @@ namespace CapaDatos.Interface
         {
             try
             {
-                Console.WriteLine("Insertando reserva en Capa de Datos...");
                 string sql =
             "SELECT crear_reserva(" +
             "'" + docente + "', " +
@@ -96,7 +95,6 @@ namespace CapaDatos.Interface
         }
         public DataTable ObtenerReservasEnIntervalo(DateTime fechaInicio, DateTime fechaFin)
         {
-            Console.WriteLine(fechaInicio.ToString("yyyy-MM-dd") + "_" + fechaFin);
             string sql = "SELECT * FROM reporte_uso_laboratorios_por_intervalo('" + fechaInicio.ToString("yyyy-MM-dd") + "', '" + fechaFin.ToString("yyyy-MM-dd") + "');";
             return obj_sql.ExecuteSQLQuery(sql);
         }
